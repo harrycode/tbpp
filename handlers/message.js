@@ -14,8 +14,8 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
         if (typeof message != "string") return;
         var args = message.split(" ");
         if (!users[conn.id]) {
-          sendSysMsg("i somehow forgot your name");
-          sendSysMsg("pls set another one");
+          sendSysMsg("I seem to have forgotten your name.");
+          sendSysMsg("Please set your name to what it was before I forgot it.");
           return;
         }
         if (!users[conn.id].god) {
@@ -59,9 +59,9 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
         }
         if (message.startsWith("?!unban ") && users[conn.id].god) {
           if (banh.unban(args[1])) {
-            sendSysMsg("unbanned " + args[1] + ".");
+            sendSysMsg("Unbanned " + args[1] + ".");
           } else {
-            sendSysMsg("that ip isnt even banned");
+            sendSysMsg("That IP isn't banned.");
           }
           return;
         }
@@ -73,7 +73,7 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
               sendSysMsg(bans[ban].ip.padEnd(38) + " | " + bans[ban].reason);
             }
           } else {
-            sendSysMsg("no bans were found");
+            sendSysMsg("No bans were found.");
           }
           return;
         }
@@ -81,25 +81,25 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
           if (!users[args[1]]) return sendSysMsg(args[1] + " isn't a valid id.");
           socket.to(args[1]).emit("message", {
             date: Date.now(),
-            nick: "Clyde",
+            nick: "SYSTEM42",
             color: users[conn.id].color,
             style: "",
-            msg: "you have been kicked by " + users[conn.id].nick + "."
+            msg: "You have been kicked by " + users[conn.id].nick + "."
           });
           socket.sockets.connected[args[1]].disconnect(true);
-          sendSysMsg("kicked " + args[1] + ".");
+          sendSysMsg("Kicked " + args[1] + ".");
           return;
         }
         if (message.startsWith("?!whois ") && users[conn.id].god) {
           var nick = args.slice(1).join(" ");
           var id = Object.keys(users).find((u) => users[u].nick == nick || u == nick);
           if (!id) {
-            return sendSysMsg("invalid user.");
+            return sendSysMsg("Invalid user.");
           }
-          sendSysMsg("info about " + nick + ": ");
-          sendSysMsg("  connection id: " + id);
-          sendSysMsg("  ip address (ssshhh):    " + users[id].ip);
-          sendSysMsg("  is moderator:  " + (users[id].god ? "YES" : "NO"));
+          sendSysMsg("Info about " + nick + ": ");
+          sendSysMsg("  Connection ID: " + id);
+          sendSysMsg("  IP Address:    " + users[id].ip);
+          sendSysMsg("  Is Moderator:  " + (users[id].god ? "YES" : "NO"));
           return;
         }
         if (users[conn.id].awaitingmsg) {
@@ -118,19 +118,19 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
         usr(conn.id, users[conn.id].nick + ": " + message);
         if (message == "?!help") {
           sendSysMsg("[ COMMANDS ]");
-          sendSysMsg("type ?!tell [username] to PM someone.");
-          sendSysMsg("type ?!roll [max] [min] to roll a dice.");
-          sendSysMsg("type ?!me [text] to do something in roleplay.");
+          sendSysMsg("Type ?!tell [username] to PM someone.");
+          sendSysMsg("Type ?!roll [max] [min] to roll a dice.");
+          sendSysMsg("Type ?!me [text] to do something in roleplay.");
           if (users[conn.id].god) {
             sendSysMsg("");
             sendSysMsg("[ ADMIN COMMMANDS ]");
-            sendSysMsg("type ?!whois [username] to get info about a user.");
-            sendSysMsg("type ?!bcmd [javascript] to run JavaScript in the browser window of all connected users.");
-            sendSysMsg("type ?!kick [id] to kick a user.");
-            sendSysMsg("type ?!ban [id] [minutes] [reason] to temporarily ban a user.");
-            sendSysMsg("type ?!pban [id] [reason] to permanently ban a user.");
-            sendSysMsg("type ?!unban [ip] to unban an ip.");
-            sendSysMsg("type ?!bans to list all bans.");
+            sendSysMsg("Type ?!whois [username] to get info about a user.");
+            sendSysMsg("Type ?!bcmd [javascript] to run JavaScript in the browser window of all connected users.");
+            sendSysMsg("Type ?!kick [id] to kick a user.");
+            sendSysMsg("Type ?!ban [id] [minutes] [reason] to temporarily ban a user.");
+            sendSysMsg("Type ?!pban [id] [reason] to permanently ban a user.");
+            sendSysMsg("Type ?!unban [ip] to unban an ip.");
+            sendSysMsg("Type ?!bans to list all bans.");
           }
           return;
         }
@@ -140,10 +140,10 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
             return users[el].nick == input;
           });
           if (!recipient) {
-            sendSysMsg("user not found.");
+            sendSysMsg("User not found.");
             return;
           }
-          sendSysMsg("type a message to send to that user.");
+          sendSysMsg("Type a message to send to that user.");
           users[conn.id].awaitingmsg = recipient;
           return;
         }
