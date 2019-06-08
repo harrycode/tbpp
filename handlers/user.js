@@ -71,8 +71,8 @@ module.exports = (socket, conn, users, sendSysMsg) => {
       conn.emit("_connected");
       motd.forEach(el => {
         sendSysMsg(
-          el.replace(/{{{{{GIBEHOSTPLS}}}}}/g,   "ws" + (config.webclient.usehttps ? "s" : "") + "://" + (conn.handshake.headers.host || "localhost:" + port) + "/")
-            .replace(/{{{{{GIBEINJECTPLS}}}}}/g, "http" + (config.webclient.usehttps ? "s" : "") + "://" + (conn.handshake.headers.host || "localhost:" + port) + "/inject.js")
+          el.replace(/{{{{{GIBEHOSTPLS}}}}}/g,   "ws" + (config.tbpp.https ? "s" : "") + "://" + (conn.handshake.headers.host || "localhost:" + port) + "/")
+            .replace(/{{{{{GIBEINJECTPLS}}}}}/g, "http" + (config.tbpp.https ? "s" : "") + "://" + (conn.handshake.headers.host || "localhost:" + port) + "/inject.js")
         );
       });
     },

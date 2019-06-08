@@ -40,7 +40,7 @@ process.on("uncaughtException", (err) => {
   log("==== FATAL ERROR! ====");
   log("tbpp has encountered a fatal error and must shut down.");
   log("Here are some error details:");
-  err.stack.split("\n").forEach((e) => fs.writeSync(1, e));
+  err.stack.split("\n").forEach((e) => fs.writeSync(1, "\r" + e + "\n"));
   log("Exiting...");
   process.exit(1);
 });
@@ -49,12 +49,6 @@ process.on("SIGINT", () => {
   stop();
 });
 
-if (config.webclient.enabled) {
-  var webport = config.webclient.port == "same" || !config.webclient.enabled ? config.tbpp.port : config.webclient.port;
-
-  app.listen(webport, () => {
-    log(`Listening on port ${port} (${config.webclient.usehttps ? "https" : "http"}://localhost:${webport}/)`);
-  });
-} else {
-  log(`Listening on port ${port} (webclient is disabled)`);
-}
+app.listen(config.tbpp.port, () => {
+  log(`Listening on port ${config.tbpp.port} (${config.tbpp.https ? "wss" : "ws"}://localhost:${config.tbpp.port}/)`);
+});

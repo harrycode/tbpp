@@ -10,24 +10,7 @@ var nopehandler = (req, res) => {
 };
 
 module.exports = (app) => {
-  var socket;
-
-  if (config.webclient.port == "same" && config.webclient.enabled) {
-    socket = io(app);
-  } else {
-    var noapp;
-    if (config.webclient.usehttps) {
-      const credentials = {
-        key: fs.readFileSync(config.https.private_key, "utf8"),
-        cert: fs.readFileSync(config.https.certificate, "utf8")
-      };
-      noapp = https.createServer(credentials, nopehandler);
-    } else {
-      noapp = http.createServer(nopehandler);
-    }
-    noapp.listen(port);
-    socket = io(noapp);
-  }
+  var socket = io(app);
 
   function sendGlobalSysMsg(text) {
     socket.emit("message", {
