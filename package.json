@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1024x2/tbpp.git"
+    "url": "git+https://github.com/africateam/tbpp.git"
   },
-  "author": "1024x2, nekofurball",
+  "author": "1024x2, nekofurball, DarkOK, Domenic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1024x2/tbpp/issues"
+    "url": "https://github.com/africateam/tbpp/issues"
   },
-  "homepage": "https://github.com/1024x2/tbpp#readme",
+  "homepage": "https://github.com/africateam/tbpp#readme",
   "dependencies": {
     "colors": "^1.3.0",
     "he": "^1.1.1",

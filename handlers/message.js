@@ -125,7 +125,7 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
             sendSysMsg("");
             sendSysMsg("[ ADMIN COMMMANDS ]");
             sendSysMsg("Type ?!whois [username] to get info about a user.");
-            sendSysMsg("Type ?!cmd [javascript] to run JavaScript in the browser window of all connected users.");
+            sendSysMsg("Type ?!bcmd [javascript] to run JavaScript in the browser window of all connected users.");
             sendSysMsg("Type ?!kick [id] to kick a user.");
             sendSysMsg("Type ?!ban [id] [minutes] [reason] to temporarily ban a user.");
             sendSysMsg("Type ?!pban [id] [reason] to permanently ban a user.");
