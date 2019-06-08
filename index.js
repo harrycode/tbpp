@@ -21,7 +21,7 @@ var stop = global.stop = () => {
   log("Stopping server...");
   socket.emit("message", {
     date: Date.now(),
-    nick: "SYSTEM42",
+    nick: "Clyde",
     color: "#0f0",
     style: "",
     msg: "The server is stopping!"
