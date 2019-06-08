@@ -3,11 +3,7 @@ Trollbox++ is a trollbox server with extra features.
 This fork plans to add multiple major features, such as voice chat.
 
 # Configuring
-Rename config.example.ini to config.ini.
-Please read the config.
-
-# Web client
-You require a web server (apache2, nginx, lighttpd, etc) to serve this under https://github.com/africateam/tbpp-static
+Rename config.example.ini to config.ini and then modify it using the instructions at https://github.com/africateam/tbpp/wiki/Config
 
 # Starting
 ```
