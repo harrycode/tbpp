@@ -9,21 +9,21 @@ module.exports = (socket, conn) => {
     function msg(text) {
       socket.to(id).emit("message", {
         date: Date.now(),
-        nick: "Clyde",
+        nick: "SYSTEM42",
         color: "#0f0",
         style: "",
         msg: text
       });
     }
     usr(conn.id, conn.handshake.address + " is banned, kicking...");
-    msg("you are banned!");
+    msg("You have been banned!");
     msg("");
     msg("Reason: " + baninfo.reason);
     msg("");
     if (baninfo.expires) {
-      msg("this ban will expire on " + moment(baninfo.expires).format("MMMM Do YYYY, hh:mm:ss a"));
+      msg("This ban will expire on " + moment(baninfo.expires).format("MMMM Do YYYY, hh:mm:ss a"));
     } else {
-      msg("this ban is permament.");
+      msg("This ban is permament.");
     }
     socket.sockets.connected[id].disconnect(true);
   }
