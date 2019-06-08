@@ -1,0 +1,5 @@
+Welcome to trollbox++! (AfricaTeam Fork) Type ?!help for help.
+
+To connect to trollbox++ with custom clients, use this url: {{{{{GIBEHOSTPLS}}}}}
+
+Trollbox++'s source code is available here: https://github.com/africateam/tbpp
