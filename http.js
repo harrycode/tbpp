@@ -9,10 +9,10 @@ function handler(req, res) {
 }
 
 if (config.tbpp.usehttps) {
-  module.exports = https.createServer({
+  module.exports = require("https").createServer({
     key: fs.readFileSync(config.https.private_key, "utf8"),
     cert: fs.readFileSync(config.https.certificate, "utf8")
   }, handler);
 } else {
-  module.exports = http.createServer(handler);
+  module.exports = require("http").createServer(handler);
 }
