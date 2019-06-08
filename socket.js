@@ -15,7 +15,7 @@ module.exports = (app) => {
   function sendGlobalSysMsg(text) {
     socket.emit("message", {
       date: Date.now(),
-      nick: "SYSTEM42",
+      nick: "Clyde",
       color: "#0f0",
       style: "",
       msg: text
@@ -25,7 +25,7 @@ module.exports = (app) => {
   function sendSysMsgTo(id, text) {
     socket.to(id).emit("message", {
       date: Date.now(),
-      nick: "SYSTEM42",
+      nick: "Clyde",
       color: "#0f0",
       style: "",
       msg: text
@@ -36,7 +36,7 @@ module.exports = (app) => {
     function sendSysMsg(text) {
       conn.emit("message", {
         date: Date.now(),
-        nick: "SYSTEM42",
+        nick: "Clyde",
         color: "#0f0",
         style: "",
         msg: text
