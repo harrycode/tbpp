@@ -12,7 +12,7 @@ module.exports = (socket, conn, users, sendSysMsg) => {
     var mods = Object.keys(users).filter(e => users[e].god && !users[e].bot);
     var bots = Object.keys(users).filter(e => users[e].bot);
     var notmods = Object.keys(users).filter(e => !users[e].god && !users[e].bot);
-    cleanedUsers["!!!!00_SYSTEM42"] = {nick: "SYSTEM42", color: "#0f0"};
+    cleanedUsers["!!!!00_SYSTEM42"] = {nick: "Clyde", color: "#0f0"};
     if (mods.length > 0) {
       cleanedUsers["!!!!01_FILLER"] = {nick: "<b></b>", color: "#000"};
       cleanedUsers["!!!!02_MODTAG"] = {nick: "<i style=\"opacity: 0.7;\">ADMINS - " + mods.length + "</i>", color: "#fff"};
