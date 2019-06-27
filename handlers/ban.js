@@ -17,6 +17,7 @@ module.exports = (socket, conn) => {
     }
     usr(conn.id, conn.handshake.address + " is banned, kicking...");
     msg("You have been banned!");
+    msg("bruh moment");
     msg("");
     msg("Reason: " + baninfo.reason);
     msg("");
