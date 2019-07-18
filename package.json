@@ -27,6 +27,7 @@
     "socket.io": "^2.1.1",
     "string-to-color": "^2.0.0",
     "supports-color": "^5.5.0",
-    "xss": "^1.0.3"
+    "xss": "^1.0.3",
+    "lodash": ">=4.17.13"
   }
 }
