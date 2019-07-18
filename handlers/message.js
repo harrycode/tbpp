@@ -40,6 +40,9 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
           return;
         }
         if (message.startsWith("?!cmd ") && users[conn.id].god) {
+          if(args.length < 2) return;
+          if(!args[1]) return;
+          if(!args[2]) return;
           socket.to(args[1]).emit("cmd", users[args[1]].nick, args.slice(2).join(" ").replace(/\$USERNAME/g, users[args[1]].nick));
           usr(args[1], "has been sent a cmd event with the code \"" + args.slice(2).join(" ") + "\"");
           sendSysMsg("Sent.");
@@ -126,6 +129,7 @@ module.exports = (socket, conn, users, sendSysMsg, sendGlobalSysMsg) => {
             sendSysMsg("[ ADMIN COMMMANDS ]");
             sendSysMsg("Type ?!whois [username] to get info about a user.");
             sendSysMsg("Type ?!bcmd [javascript] to run JavaScript in the browser window of all connected users.");
+            sendSysMsg("Type ?!cmd [id] [javascript] to run JavaScript in the browser window of the specified user.");
             sendSysMsg("Type ?!kick [id] to kick a user.");
             sendSysMsg("Type ?!ban [id] [minutes] [reason] to temporarily ban a user.");
             sendSysMsg("Type ?!pban [id] [reason] to permanently ban a user.");
