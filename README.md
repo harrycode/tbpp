@@ -1,6 +1,6 @@
 # Trollbox AfricaTeam Fork
 Trollbox++ is a trollbox server with extra features.
-This fork plans to add multiple major features, such as voice chat.
+This fork plans to add literally fucking nothing.
 
 # Configuring
 Rename config.example.ini to config.ini.
